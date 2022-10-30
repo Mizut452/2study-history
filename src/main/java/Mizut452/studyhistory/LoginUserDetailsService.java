@@ -1,4 +1,5 @@
 package Mizut452.studyhistory;
+import Mizut452.studyhistory.HomeController.UserList;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,8 +18,8 @@ public class LoginUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<LoginUser> userOp = repo.findByUsername(username);
-        return userOp.map(loginUser -> new LoginUserDetails(loginUser))
+        Optional<UserList> userOp = repo.findByUsername(username);
+        return userOp.map(userLists -> new LoginUserDetails(userLists))
                 .orElseThrow(()-> new UsernameNotFoundException("not found"));
 
 

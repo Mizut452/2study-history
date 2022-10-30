@@ -1,29 +1,30 @@
 package Mizut452.studyhistory;
 
+import Mizut452.studyhistory.HomeController.UserList;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class LoginUserDetails implements UserDetails {
-    private final LoginUser loginUser;
+    private final UserList userLists;
 
-    public LoginUserDetails(LoginUser loginUser) {
-        this.loginUser = loginUser;
+    public LoginUserDetails(UserList userLists) {
+        this.userLists = userLists;
     }
 
-    public LoginUser getLoginUser() {
-        return loginUser;
+    public UserList getUserList() {
+        return userLists;
     }
 
     @Override
     public String getPassword() {
-        return loginUser.password();
+        return userLists.password();
     }
 
     @Override
     public String getUsername() {
-        return loginUser.username();
+        return userLists.username();
     }
 
 
