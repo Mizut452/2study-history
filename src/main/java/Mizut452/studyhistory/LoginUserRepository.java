@@ -11,10 +11,10 @@ import java.util.Optional;
 public class LoginUserRepository {
     private static final String SQL_FIND_BY_USERNAME = """
             SELECT
-            userid,
+            username,
             password,
             FROM userlist
-            WHERE userid =?
+            WHERE username =?
             """;
 
     private static final ResultSetExtractor<LoginUser> LOGIN_USER_RESULT_SET_EXTRACTOR = (rs) -> {
