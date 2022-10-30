@@ -44,6 +44,8 @@ public class SecurityConfig {
                 .permitAll()
                 .mvcMatchers("/createaccount")
                 .permitAll()
+                .mvcMatchers("/userlist")
+                .permitAll()
                 .anyRequest().authenticated()
         );
         http.csrf().disable();

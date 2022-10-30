@@ -12,9 +12,9 @@ public class LoginUserRepository {
     private static final String SQL_FIND_BY_USERNAME = """
             SELECT
             username,
-            password,
+            password
             FROM userlist
-            WHERE username =?
+            WHERE username = ?
             """;
 
     private static final ResultSetExtractor<LoginUser> LOGIN_USER_RESULT_SET_EXTRACTOR = (rs) -> {
