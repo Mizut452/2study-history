@@ -12,10 +12,12 @@ import java.util.Optional;
 public class LoginUserRepository {
     private static final String SQL_FIND_BY_USERNAME = """
             SELECT
-            username,
-            password
-            FROM userlist
-            WHERE username = :username
+            u.id,
+            u.mailaddress,
+            u.username,
+            u.password
+            FROM userlist u
+            WHERE u.username = ?
             """;
 
     private static final ResultSetExtractor<UserList> LOGIN_USER_RESULT_SET_EXTRACTOR = (rs) -> {
@@ -26,6 +28,8 @@ public class LoginUserRepository {
 
         while(rs.next()) {
             if (username == null) {
+                id = rs.getString("id");
+                mailaddress = rs.getString("mailaddress");
                 username = rs.getString("username");
                 password = rs.getString("password");
             }
